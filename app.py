@@ -6,8 +6,8 @@ import os
 load_dotenv()
 
 app = Flask(__name__,
-            template_folder='../templates', 
-            static_folder= '../static'
+            template_folder='templates', 
+            static_folder= 'static'
             )
 
 @app.route("/", methods=["POST", "GET"])
@@ -15,5 +15,6 @@ def root():
     return render_template("home.html")
 
 debug_mode = os.getenv("FLASK_DEBUG", "0") == "1"
+# print("deug mode is : ", debug_mode)
 if __name__ == '__main__':
     app.run(debug=debug_mode)
