@@ -1,0 +1,5 @@
+google-generativeai
+flask 
+jinja2
+python-dotenv
+chromadb

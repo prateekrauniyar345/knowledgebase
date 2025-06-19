@@ -1,0 +1,11 @@
+# virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# environment variables
+.env
+.flaskenv
+.env.local
+.env.prod

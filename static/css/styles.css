@@ -1,0 +1,78 @@
+/* 1. Universal box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Base font settings */
+html {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+}
+
+/* 3. Remove default spacing */
+body {
+  margin: 0;      /* was "margin: px;" */
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+/* Remove underlines from all navbar links */
+nav ul li a {
+  text-decoration: none !important;
+}
+
+/* Pure Black Background for the Navbar */
+.pure-black-navbar {
+    background-color: rgb(0, 0, 0) !important; /* Pure Black */
+}
+
+/* Pure White Text for Navbar Brand and Nav Links */
+.pure-black-navbar .navbar-brand,
+.pure-black-navbar .navbar-nav .nav-link {
+    color: rgb(255, 255, 255) !important; /* Pure White */
+}
+
+/* Ensure active link is also pure white */
+.pure-black-navbar .navbar-nav .nav-link.active {
+    color: rgb(255, 255, 255) !important; /* Pure White */
+}
+
+/* Make the Toggler Icon Pure White (or visible) */
+.pure-black-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Style the buttons for pure white text or outline on pure black */
+.pure-black-navbar .btn-outline-light {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(255, 255, 255) !important;
+}
+
+.pure-black-navbar .btn-outline-light:hover {
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+/* If you want the "Sign Up" button to also have pure white text, consider changing its class */
+.pure-black-navbar .btn-light {
+    /* If you want it to be pure white background with black text */
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0) !important;
+    border-color: rgb(255, 255, 255) !important;
+}
+
+/* If you prefer the "Sign Up" button to be outline pure white as well */
+.pure-black-navbar .btn-pure-white-outline {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(255, 255, 255) !important;
+    background-color: transparent !important;
+    border-width: 2px !important; /* Adjust this value as needed (e.g., 1px, 3px, etc.) */
+}
+
+.pure-black-navbar .btn-pure-white-outline:hover {
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0) !important;
+}
