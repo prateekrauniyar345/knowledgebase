@@ -9,3 +9,13 @@ ENV/
 .flaskenv
 .env.local
 .env.prod
+
+
+# rmeove DS_store, ._ files
+._*
+.DS_Store
+
+
+# Python bytecode
+__pycache__/
+*.py[cod]

@@ -5,7 +5,10 @@ import os
 # load the environment varibales
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__,
+            template_folder='../templates', 
+            static_folder= '../static'
+            )
 
 @app.route("/", methods=["POST", "GET"])
 def root():
