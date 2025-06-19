@@ -8,7 +8,7 @@
 /* 2. Base font settings */
 html {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 
 /* 3. Remove default spacing */
@@ -76,3 +76,4 @@ nav ul li a {
     background-color: rgb(255, 255, 255) !important;
     color: rgb(0, 0, 0) !important;
 }
+
