@@ -1,0 +1,47 @@
+<!-- header.html -->
+{# Remove the outer container div #}
+<nav class="navbar navbar-expand-lg pure-black-navbar">
+    {# Use container-fluid directly inside nav for padding and width #}
+    {# Remove me-auto and fw-bold from this container #}
+    <div class="container-fluid">
+        {# KnowledgeBase at Start (Left) #}
+        <a class="navbar-brand" href="/"><h3>KnowledgeBase</h3></a>
+
+        {# Toggler for mobile #}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {# Collapsible content, using flexbox for center and end alignment #}
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            {# Navigation Options in Center - Use ul/li and mx-auto #}
+            {# mx-auto on this ul will center it and push subsequent elements to the right #}
+            <ul class="navbar-nav mx-auto gap-4">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contactus">Contact US</a>
+                </li>
+            </ul>
+
+            {# Sign-in/Sign-up at End (Right) - Pushed by mx-auto on the ul #}
+            {# No ms-auto needed on this div #}
+            <div class="navbar-nav">
+                <button class="btn btn-outline-light me-2  mode-switch">
+                    <a href="/auths/login" class="text-decoration-none text-white">Login</a>
+                </button>
+                <button class="btn btn-outline-light  mode-switch">
+                    <a href="/auths/register" class="text-decoration-none text-white">Sign Up</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+{# Remove the closing outer divs #}

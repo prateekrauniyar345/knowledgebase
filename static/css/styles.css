@@ -77,3 +77,10 @@ nav ul li a {
     color: rgb(0, 0, 0) !important;
 }
 
+/* mode-switch */
+.mode-switch a:hover {
+    cursor: pointer;
+    color : black !important; /* Change to black on hover */
+
+}
+
