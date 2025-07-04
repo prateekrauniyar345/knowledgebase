@@ -1,8 +1,357 @@
-<!-- home.html -->
 {% extends "root.html" %}
-{% block title %} Home {% endblock %}
+{% block title %}KnowledgeBase - Your AI-Powered Document Brain{% endblock %}
+
 {% block main_content %}
-    <div>
-    <p>This is the home page.</p>
-  </div>
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, #1e3a8a, #0c4a6e); /* Dark blue gradient */
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden; /* For pseudo-elements */
+    }
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        animation: pulse 4s infinite ease-in-out;
+    }
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        animation: pulse 5s infinite reverse ease-in-out;
+    }
+    .hero-section h1 {
+        font-size: 3.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-section p.lead {
+        font-size: 1.4rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-section .btn {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+        border-radius: 50px; /* Pill shape */
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-section .btn-primary {
+        background-color: #ff9800; /* Orange accent */
+        border-color: #ff9800;
+        color: #fff;
+    }
+    .hero-section .btn-primary:hover {
+        background-color: #e68900;
+        border-color: #e68900;
+        transform: translateY(-2px);
+    }
+    .hero-section .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+    }
+    .hero-section .btn-outline-light:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Animations for hero section shapes */
+    @keyframes pulse {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+        100% { transform: scale(0.8); opacity: 0.5; }
+    }
+
+    /* Feature Cards Section */
+    .features-section {
+        padding: 80px 0;
+        background-color: white;
+    }
+    .features-section h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 50px;
+        text-align: center;
+        color: #1e3a8a;
+    }
+    .feature-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        height: 100%; /* Ensure cards are same height */
+    }
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .feature-card i {
+        font-size: 4rem;
+        color: #0c4a6e; /* Darker blue */
+        margin-bottom: 25px;
+    }
+    .feature-card h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #1e3a8a;
+    }
+    .feature-card p {
+        font-size: 1.1rem;
+        color: #666;
+    }
+
+    /* How It Works Section */
+    .how-it-works-section {
+        padding: 80px 0;
+        background-color: #f0f4f8; /* Light blue-gray */
+    }
+    .how-it-works-section h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 60px;
+        text-align: center;
+        color: #1e3a8a;
+    }
+    .step-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .step-card .step-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ff9800; /* Orange accent */
+        margin-right: 25px;
+        flex-shrink: 0;
+    }
+    .step-card h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #1e3a8a;
+    }
+    .step-card p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0;
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+        padding: 80px 0;
+        background: linear-gradient(45deg, #0c4a6e, #1e3a8a); /* Dark blue gradient */
+        color: white;
+        text-align: center;
+    }
+    .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+    .cta-section p.lead {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cta-section .btn {
+        padding: 18px 45px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        background-color: #ff9800; /* Orange accent */
+        border-color: #ff9800;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    .cta-section .btn:hover {
+        background-color: #e68900;
+        border-color: #e68900;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Utility */
+    .my-custom-hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+        margin: 60px 0;
+    }
+
+    /* Ensure Font Awesome is loaded for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+    /* Adjust navbar specific styles for pure black */
+    .pure-black-navbar {
+        background-color: #000 !important; /* Pure black */
+        color: #fff !important;
+    }
+    .pure-black-navbar .navbar-brand,
+    .pure-black-navbar .nav-link,
+    .pure-black-navbar .btn-outline-light {
+        color: #fff !important;
+        border-color: #fff !important;
+    }
+    .pure-black-navbar .nav-link:hover {
+        color: rgba(255, 255, 255, 0.75) !important;
+    }
+</style>
+
+<section class="hero-section">
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInUp">Unleash Your Knowledge with AI</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-0-5s">
+            Transform your documents, notes, and data into an intelligent, searchable knowledge base. Get instant answers, create new content, and streamline your workflow.
+        </p>
+        <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-1s">
+            <a href="/auths/register" class="btn btn-primary">Try It For Free</a>
+            <a href="/features" class="btn btn-outline-light">Discover Features</a>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2>Key Capabilities</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Intelligent Q&A</h3>
+                    <p>Upload any file type (PDFs, Docs, Spreadsheets) and receive accurate, context-aware answers to your questions, citing sources directly from your data.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Natural Language Editing</h3>
+                    <p>Modify, summarize, or expand your content using simple, everyday language. Our AI handles the heavy lifting, maintaining version history for peace of mind.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Seamless Google Integration</h3>
+                    <p>Connect your Google Drive, Docs, Sheets, and Calendar with a single click. Sync your data and interact with it directly within KnowledgeBase.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Workspace Isolation</h3>
+                    <p>Ensure complete data privacy and security with dedicated, isolated workspaces for different projects or teams. Your data remains yours alone.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Comprehensive Audit Trail</h3>
+                    <p>Every interaction and modification is logged and auditable, providing transparency and control over your knowledge base's evolution.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Multi-Format Ingestion</h3>
+                    <p>From PDFs and Word documents to spreadsheets and plain text, KnowledgeBase intelligently processes and embeds all your crucial information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works-section">
+    <div class="container">
+        <h2>How KnowledgeBase Works</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <div>
+                        <h3>Upload Your Data</h3>
+                        <p>Securely upload documents, spreadsheets, or connect your Google Workspace. Our system ingests and processes your information.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <div>
+                        <h3>AI Processes & Embeds</h3>
+                        <p>Our advanced AI extracts text, chunks content, and creates intelligent embeddings, storing them for rapid retrieval.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <div>
+                        <h3>Ask & Interact</h3>
+                        <p>Use natural language to ask questions, summarize content, or issue commands. Get precise answers and insights, instantly.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <div>
+                        <h3>Streamline Your Workflow</h3>
+                        <p>Leverage AI for tasks like scheduling, data analysis, and content generation, all within your unified knowledge environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section"> <div class="container">
+        <h2 class="text-center">Under the Hood: Our Robust Architecture</h2>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10 text-center">
+                <p class="lead mb-5">Built on battle-tested AI and cloud technologies, KnowledgeBase is designed for performance, security, and scalability. Here’s a glimpse:</p>
+                <img src="https://via.placeholder.com/800x400?text=Architectural+Diagram+Placeholder" alt="KnowledgeBase Architecture Diagram" class="img-fluid rounded shadow mb-4">
+                <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>**Vector Store:** Chroma for blazing-fast similarity search.</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>**Relational Database:** Postgres for robust metadata management and versioning.</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>**AI Engines:** Leveraging OpenAI GPT-4o, Mistral, and more for advanced RAG and natural language processing.</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>**Asynchronous Processing:** Celery/RQ for seamless background ingestion and embedding.</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>**Secure & Scalable:** Designed with AWS IAM, VPC, and robust security protocols.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Revolutionize Your Knowledge Management?</h2>
+        <p class="lead">Join the future of information interaction. Experience the power of your own personal AI KnowledgeBase.</p>
+        <a href="/auths/register" class="btn btn-primary animate__animated animate__pulse animate__infinite">Try It For Free</a>
+    </div>
+</section>
 {% endblock %}

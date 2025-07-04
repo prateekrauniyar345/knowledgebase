@@ -1,7 +1,102 @@
 <!-- footer.html -->
-
-<footer class="bg-dark text-light py-3">
+<footer class="site-footer text-light py-4">
     <div class="container">
-        <p class="mb-0">© 2023 KnowledgeBase. All rights reserved.</p>
+        <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <h5 class="text-uppercase fw-bold mb-3">KnowledgeBase</h5>
+                <p class="text-muted">
+                    Your AI-powered document brain. Transforming scattered information into actionable insights.
+                </p>
+            </div>
+            <div class="col-md-3 mb-3 mb-md-0">
+                <h5 class="text-uppercase fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-light text-decoration-none footer-link">Home</a></li>
+                    <li><a href="/features" class="text-light text-decoration-none footer-link">Features</a></li>
+                    <li><a href="/pricing" class="text-light text-decoration-none footer-link">Pricing</a></li>
+                    <li><a href="/contactus" class="text-light text-decoration-none footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="text-uppercase fw-bold mb-3">Connect</h5>
+                <ul class="list-unstyled social-icons">
+                    <li>
+                        <a href="#!" class="text-light text-decoration-none me-3 footer-social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#!" class="text-light text-decoration-none me-3 footer-social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#!" class="text-light text-decoration-none footer-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="mt-3 text-muted">
+                    <a href="mailto:info@knowledgebase.com" class="text-light text-decoration-none footer-link">info@knowledgebase.com</a>
+                </p>
+            </div>
+        </div>
+        <hr class="footer-divider my-4">
+        <div class="text-center text-muted">
+            <p class="mb-0 text-white">© 2025 KnowledgeBase. All rights reserved.</p>
+        </div>
     </div>
 </footer>
+
+<style>
+    /* Footer specific styles to match the home.html theme */
+    .site-footer {
+        background-color: black;
+        /* background: linear-gradient(135deg, #0c4a6e, #1e3a8a); Dark blue gradient */
+        color: rgba(255, 255, 255, 0.9); /* Slightly lighter text for readability */
+        padding: 60px 0 30px; /* More padding top/bottom */
+    }
+
+    .site-footer h5 {
+        color: #ff9800; /* Orange accent for headings */
+        font-weight: 700;
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+    }
+
+    .site-footer p.text-muted {
+        color: rgba(255, 255, 255, 0.7) !important; /* Muted text for descriptions */
+        font-size: 0.95rem;
+    }
+
+    .site-footer .footer-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+        transition: color 0.3s ease;
+        font-size: 0.95rem;
+        padding: 3px 0;
+        display: inline-block; /* For proper padding on smaller screens */
+    }
+
+    .site-footer .footer-link:hover {
+        color: #ff9800 !important; /* Orange accent on hover */
+        text-decoration: underline !important;
+    }
+
+    .site-footer .social-icons .fab {
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .site-footer .social-icons .footer-social-link {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .site-footer .social-icons .footer-social-link:hover {
+        color: #ff9800 !important; /* Orange accent on social hover */
+    }
+
+    .site-footer .footer-divider {
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+    }
+
+    .site-footer .text-center .text-muted {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+</style>
